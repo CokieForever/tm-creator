@@ -1,0 +1,162 @@
+/*
+TM Creator - Little software for TrackMania files packaging
+Copyright (C) 2008-2013  Cokie
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#include "define.h"
+
+
+#define APSTUDIO_READONLY_SYMBOLS
+#include "afxres.h"
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#if !defined(AFX_RESOURCE_DLL) | defined(AFX_TARG_FRA)
+
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+
+list DIALOGEX 0, 0, 165, 225
+STYLE WS_CHILD | WS_DLGFRAME | WS_VISIBLE
+FONT 8, "Arial", 1000, 1
+BEGIN
+     COMBOBOX          IDCB_HIDDENLIST, 1000, 1000, 10, 180
+     EDITTEXT          IDE_LIST, 10, 10, 145, 12, ES_AUTOHSCROLL | WS_TABSTOP
+     /*PUSHBUTTON        "Options", IDT_TEXT, 5, 175, 140, 50, BS_GROUPBOX
+     PUSHBUTTON        "Ajouter", IDP_ADD, 10, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Créer package", IDP_BUILD, 110, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Supprimer", IDP_DELETE, 30, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Vider", IDP_DELETEALL, 50, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Exécuter", IDP_EXE, 70, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Propriétés", IDP_PROPERTIES, 90, 185, 15, 15, BS_ICON
+     PUSHBUTTON        "Ouvrir", IDP_OPEN, 10, 205, 15, 15, BS_ICON
+     PUSHBUTTON        "Sauvegarder", IDP_SAVE, 30, 205, 15, 15, BS_ICON*/
+     DEFPUSHBUTTON     "def", IDP_DEF, 1000, 1000, 15, 15
+END
+
+dragAndDrop DIALOGEX 10, 25, 145, 145
+STYLE WS_CHILD | WS_VISIBLE
+EXSTYLE WS_EX_ACCEPTFILES
+FONT 8, "Arial", 1000, 1
+BEGIN
+END
+
+
+properties DIALOG 0, 0, 300, 130
+STYLE WS_POPUPWINDOW
+FONT 8, "MS Sans Serif"
+CAPTION "Propriétés"
+BEGIN
+     LTEXT             "Adresse d'extraction :", IDT_TEXT, 10, 10, 80, 10
+     PUSHBUTTON        "Modifier la base", IDP_BASEEDIT, 90, 8, 60, 12
+     CHECKBOX          "TMDestination...", IDC_USETMDEST, 10, 25, 280, 16, WS_TABSTOP | BS_AUTOCHECKBOX
+     EDITTEXT          IDE_DEST, 10, 45, 220, 12, WS_TABSTOP | ES_AUTOHSCROLL
+     PUSHBUTTON        "Parcourir", IDP_BROWSE, 240, 45, 50, 12
+     LTEXT             "Fichier :", IDT_FILE, 10, 70, 280, 24
+     DEFPUSHBUTTON     "Ok", IDP_OK, 260, 105, 30, 15
+     PUSHBUTTON        "Annuler", IDP_CANCEL, 220, 105, 30, 15
+END
+
+
+musicplayer DIALOG 0, 0, 135, 45
+STYLE WS_CHILD
+EXSTYLE WS_EX_CLIENTEDGE
+FONT 8, "Windings"
+BEGIN
+     PUSHBUTTON        ">", IDP_PLAYMUSIC, 8, 8, 12, 12, BS_ICON
+     PUSHBUTTON        "||", IDP_PAUSEMUSIC, 24, 8, 12, 12, BS_ICON
+     PUSHBUTTON        "[]", IDP_STOPMUSIC, 40, 8, 12, 12, BS_ICON
+     LTEXT             "00:00", IDT_MUSICTIME, 60, 10, 30, 10
+END
+
+
+beginpackage DIALOG 0, 0, 200, 125
+STYLE WS_POPUPWINDOW
+FONT 8, "MS Sans Serif"
+CAPTION "Options de package"
+BEGIN
+     CHECKBOX          "Mot de passe :", IDC_PASSWORD, 10, 10, 60, 10, BS_AUTOCHECKBOX | WS_TABSTOP
+     EDITTEXT          IDE_PASSWORD, 80, 9, 110, 12, ES_AUTOHSCROLL | ES_PASSWORD | WS_TABSTOP
+     LTEXT             "Confirmation :", IDT_TEXT, 22, 25, 45, 10
+     EDITTEXT          IDE_PASSWORD2, 80, 25, 109, 12, ES_AUTOHSCROLL | ES_PASSWORD | WS_TABSTOP
+     CHECKBOX          "Inclure les fichiers non reconnus", IDC_INCLUDEUNKNOW, 10, 55, 180, 10, BS_AUTOCHECKBOX | WS_TABSTOP
+     CHECKBOX          "Inclure les fichiers hors du dossier TrackMania", IDC_INCLUDEOUT, 10, 70, 180, 10, BS_AUTOCHECKBOX | WS_TABSTOP
+     DEFPUSHBUTTON     "Ok", IDP_OK, 160, 100, 30, 15
+     PUSHBUTTON        "Annuler", IDP_CANCEL, 120, 100, 30, 15
+END
+
+
+baseModif DIALOG 0, 0, 300, 110
+STYLE WS_POPUPWINDOW
+FONT 8, "MS Sans Serif"
+CAPTION "Modification de la base d'extraction"
+BEGIN
+     LTEXT             "Entrez une adresse relative ou absolue à utiliser comme répertoire d'extraction par défaut. Les variables d'environnement sont autorisées encadrées du signe %, par exemple %userprofile%. Il est conseillé de les utiliser. Pour plus d'informations, cliquez sur Aide.", IDT_TEXT, 10, 10, 280, 24
+     EDITTEXT          IDE_BASE, 10, 40, 280, 12, ES_AUTOHSCROLL | WS_TABSTOP
+     LTEXT             "[vide]", IDT_BASE, 10, 60, 280, 16
+     DEFPUSHBUTTON     "Ok", IDP_OK, 260, 85, 30, 15
+     PUSHBUTTON        "Annuler", IDP_CANCEL, 220, 85, 30, 15
+     PUSHBUTTON        "Aide", IDP_HELP, 180, 85, 30, 15
+END
+
+
+chooseTMD DIALOG 0, 0, 200, 80
+STYLE WS_POPUPWINDOW
+FONT 8, "MS Sans Serif"
+CAPTION "Répertoire TrackMania"
+BEGIN
+     LTEXT          "Veuillez spécifier le dossier des ressources TrackMania de votre session.", IDT_TEXT, 10, 10, 180, 16
+     EDITTEXT       IDE_TMD, 10, 33, 120, 12, ES_AUTOHSCROLL | WS_TABSTOP
+     PUSHBUTTON     "Parcourir", IDP_BROWSE, 140, 33, 50, 12
+     DEFPUSHBUTTON  "Ok", IDP_OK, 160, 55, 30, 15
+     PUSHBUTTON     "Annuler", IDP_CANCEL, 120, 55, 30, 15
+END
+
+
+chooseTMID DIALOG 0, 0, 200, 80
+STYLE WS_POPUPWINDOW
+FONT 8, "MS Sans Serif"
+CAPTION "Répertoire TrackMania"
+BEGIN
+     LTEXT          "Veuillez spécifier le dossier d'installation de TrackMania Nations Forever.", IDT_TEXT, 10, 10, 180, 16
+     EDITTEXT       IDE_TMID, 10, 33, 120, 12, ES_AUTOHSCROLL | WS_TABSTOP
+     PUSHBUTTON     "Parcourir", IDP_BROWSE, 140, 33, 50, 12
+     DEFPUSHBUTTON  "Ok", IDP_OK, 160, 55, 30, 15
+     PUSHBUTTON     "Annuler", IDP_CANCEL, 120, 55, 30, 15
+END
+
+
+#endif    // French (France) resources
+
+
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "TMCreator.exe.manifest"
+aaaaa ICON "TMCreator.ico"
+icoExe ICON "exe2.ico"
+icoVoid ICON "delete2.ico"
+icoDelete ICON "document_delete2.ico"
+icoOpen ICON "openfile2.ico"
+icoPackage ICON "gbx2.ico"
+icoPlay ICON "play.ico"
+icoPause ICON "pause.ico"
+icoStop ICON "stop.ico"
+icoProp ICON "proprietes2.ico"
+icoSave ICON "save.ico"
+icoAdd ICON "document_add2.ico"
+mainIco ICON "gbxpack.ico"

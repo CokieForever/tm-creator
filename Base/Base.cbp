@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Base" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="base" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="gdi32" />
+			<Add library="user32" />
+			<Add library="kernel32" />
+			<Add library="Comctl32" />
+			<Add library="Psapi" />
+		</Linker>
+		<Unit filename="define.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="fonctions_process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fonctions_process.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="fonctions_repertoire.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fonctions_repertoire.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="resource.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="..\Creator\fonctions_cryptage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Creator\fonctions_cryptage.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
